@@ -1,96 +1,62 @@
-# My Store — Frontend App
+# Frontend App (React + Vite)
 
-A React-based e-commerce storefront built with Vite. Users can browse products, manage a cart, and place orders after authenticating.
+A React-based e-commerce frontend built with Vite. Users can browse products, manage a cart, and place orders after authenticating.
 
-## Tech Stack
+## Prerequisites
 
-- **React 19** — UI library
-- **React Router DOM 7** — client-side routing
-- **Axios** — HTTP client for API communication
-- **Vite 7** — development server and build tool
-- **ESLint** — code linting
+- Node.js 20 or 22
+- npm 10+
 
-## Features
+## Environment Variables
 
-- Product listing with add-to-cart functionality
-- Shopping cart management
-- User authentication (login / register / logout)
-- Order history for authenticated users
-
-## Project Structure
-
-```
-src/
-+-- App.jsx              # Root component, routing, global context
-+-- main.jsx             # Entry point
-+-- assets/              # Static assets
-+-- components/
-    +-- Header.jsx        # Navigation bar
-    +-- Content.jsx       # Product listing page
-    +-- Cart.jsx          # Shopping cart page
-    +-- Orders.jsx        # Order history page
-    +-- Login.jsx         # Login form
-    +-- Register.jsx      # Registration form
-    +-- Logout.jsx        # Logout handler
-```
-
-## Getting Started
-
-### Prerequisites
-
-- Node.js 18 or later
-- npm 9 or later
-
-### Installation
-
-```bash
-npm install
-```
-
-### Environment Variables
-
-Create a `.env` file in the project root:
+Create a `.env` file in the project root with:
 
 ```env
 VITE_API_URL=http://localhost:5000
 ```
 
-| Variable        | Description                     |
-| --------------- | ------------------------------- |
-| `VITE_API_URL`  | Base URL of the backend API     |
+`VITE_API_URL` is used by the UI components to call the backend API.
 
-### Running the Development Server
+## Install
+
+```bash
+npm ci
+```
+
+## Run Locally
 
 ```bash
 npm run dev
 ```
 
-The app will be available at `http://localhost:5173`.
+By default, Vite runs on `http://localhost:5173`.
 
-### Building for Production
-
-```bash
-npm run build
-```
-
-The production-ready files are output to the `dist/` directory.
-
-### Previewing the Production Build
-
-```bash
-npm run preview
-```
-
-### Linting
+## Lint
 
 ```bash
 npm run lint
 ```
 
-## Deployment
+## Build
 
-After running `npm run build`, deploy the contents of the `dist/` folder to any static hosting provider (e.g., Vercel, Netlify, GitHub Pages, AWS S3).
+```bash
+npm run build
+```
 
-## License
+## Preview Production Build
 
-This project is private.
+```bash
+npm run preview
+```
+
+## CI
+
+GitHub Actions runs on pushes and pull requests to `main` and `master` (and can also be run manually).
+
+CI checks:
+
+- Install dependencies (`npm ci`)
+- Lint (`npm run lint`)
+- Build (`npm run build`)
+
+Node versions tested in CI: 20.x and 22.x.
