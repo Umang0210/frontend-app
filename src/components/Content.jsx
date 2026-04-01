@@ -2,9 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { AppContext } from "../App";
 import axios from "axios";
 import "./Content.css";
-
 const API_URL = import.meta.env.VITE_API_URL;
-
 function Content() {
   // const [count, setCount] = useState(0);
   const [products, setProducts] = useState([]);
@@ -17,7 +15,6 @@ function Content() {
   useEffect(() => {
     fetchProducts();
   }, []);
-
   const addToCart = (product) => {
     const found = cart.find((item) => item._id === product._id);
     if (!found) {
@@ -25,7 +22,6 @@ function Content() {
       setCart([...cart,product]);
     }
   };
-
   return (
     <div>
       <div className="row">
